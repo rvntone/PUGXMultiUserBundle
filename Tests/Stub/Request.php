@@ -1,6 +1,6 @@
 <?php
 
-namespace PUGX\MultiUserBundle\Tests\Stub;
+namespace Rvntone\MultiUserBundle\Tests\Stub;
 
 use Symfony\Component\HttpFoundation\Request as BaseRequest;
 

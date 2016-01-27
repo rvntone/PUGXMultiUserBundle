@@ -1,7 +1,7 @@
 <?php
-namespace PUGX\MultiUserBundle\Tests\Stub\Proxy\__CG__\PUGX\MultiUserBundle\Tests\Stub;
+namespace Rvntone\MultiUserBundle\Tests\Stub\Proxy\__CG__\Rvntone\MultiUserBundle\Tests\Stub;
 
-class User extends \PUGX\MultiUserBundle\Tests\Stub\User
+class User extends \Rvntone\MultiUserBundle\Tests\Stub\User
 {
 
 }

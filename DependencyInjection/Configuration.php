@@ -1,6 +1,6 @@
 <?php
 
-namespace PUGX\MultiUserBundle\DependencyInjection;
+namespace Rvntone\MultiUserBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
@@ -39,7 +39,7 @@ class Configuration implements ConfigurationInterface
                             ->arrayNode('entity')
                                 ->children()
                                     ->scalarNode('class')->isRequired()->cannotBeEmpty()->end()
-                                    ->scalarNode('factory')->defaultValue('PUGX\MultiUserBundle\Model\UserFactory')->end()
+                                    ->scalarNode('factory')->defaultValue('Rvntone\MultiUserBundle\Model\UserFactory')->end()
                                 ->end()              
                             ->end()
                         ->end()

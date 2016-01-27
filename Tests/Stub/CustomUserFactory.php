@@ -1,8 +1,8 @@
 <?php
 
-namespace PUGX\MultiUserBundle\Tests\Stub;
+namespace Rvntone\MultiUserBundle\Tests\Stub;
 
-use PUGX\MultiUserBundle\Model\UserFactoryInterface;
+use Rvntone\MultiUserBundle\Model\UserFactoryInterface;
 
 class CustomUserFactory implements UserFactoryInterface
 {    

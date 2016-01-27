@@ -1,9 +1,9 @@
 <?php
-namespace PUGX\MultiUserBundle\Controller;
+namespace Rvntone\MultiUserBundle\Controller;
 
 use FOS\UserBundle\Controller\ProfileController;
-use PUGX\MultiUserBundle\Form\FormFactory;
-use PUGX\MultiUserBundle\Model\UserDiscriminator;
+use Rvntone\MultiUserBundle\Form\FormFactory;
+use Rvntone\MultiUserBundle\Model\UserDiscriminator;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 

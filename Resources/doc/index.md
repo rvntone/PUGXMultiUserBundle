@@ -61,7 +61,7 @@ public function registerBundles()
 {
     $bundles = array(
         // ...
-        new PUGX\MultiUserBundle\PUGXMultiUserBundle(),
+        new Rvntone\MultiUserBundle\PUGXMultiUserBundle(),
         new FOS\UserBundle\FOSUserBundle(),
     );
 }
@@ -108,7 +108,7 @@ UserOne
 namespace Acme\UserBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use PUGX\MultiUserBundle\Validator\Constraints\UniqueEntity;
+use Rvntone\MultiUserBundle\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity
@@ -135,7 +135,7 @@ UserTwo
 namespace Acme\UserBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use PUGX\MultiUserBundle\Validator\Constraints\UniqueEntity;
+use Rvntone\MultiUserBundle\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity

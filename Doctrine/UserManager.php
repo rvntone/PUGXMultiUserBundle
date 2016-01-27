@@ -1,13 +1,13 @@
 <?php
 
-namespace PUGX\MultiUserBundle\Doctrine;
+namespace Rvntone\MultiUserBundle\Doctrine;
 
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\ORM\ORMException;
 use FOS\UserBundle\Doctrine\UserManager as BaseUserManager;
 use FOS\UserBundle\Util\CanonicalizerInterface;
 use Symfony\Component\Security\Core\Encoder\EncoderFactoryInterface;
-use PUGX\MultiUserBundle\Model\UserDiscriminator;
+use Rvntone\MultiUserBundle\Model\UserDiscriminator;
 
 /**
  * Custom user manager for FOSUserBundle

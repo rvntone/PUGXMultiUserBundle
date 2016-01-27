@@ -1,6 +1,6 @@
 <?php
 
-namespace PUGX\MultiUserBundle\Tests;
+namespace Rvntone\MultiUserBundle\Tests;
 
 /**
  *

@@ -1,6 +1,6 @@
 <?php
 
-namespace PUGX\MultiUserBundle\Model;
+namespace Rvntone\MultiUserBundle\Model;
 
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 

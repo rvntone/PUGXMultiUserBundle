@@ -1,16 +1,16 @@
 <?php
 
-namespace PUGX\MultiUserBundle\Tests\Controller;
+namespace Rvntone\MultiUserBundle\Tests\Controller;
 
-use PUGX\MultiUserBundle\Listener\AuthenticationListener;
-use PUGX\MultiUserBundle\Tests\Stub\Proxy\__CG__\PUGX\MultiUserBundle\Tests\Stub\User as UserProxy;
-use PUGX\MultiUserBundle\Tests\Stub\User;
+use Rvntone\MultiUserBundle\Listener\AuthenticationListener;
+use Rvntone\MultiUserBundle\Tests\Stub\Proxy\__CG__\Rvntone\MultiUserBundle\Tests\Stub\User as UserProxy;
+use Rvntone\MultiUserBundle\Tests\Stub\User;
 
 class AuthenticationListenerTest extends \PHPUnit_Framework_TestCase
 {
     public function setUp()
     {
-        $this->userDiscriminator = $this->getMockBuilder('PUGX\MultiUserBundle\Model\UserDiscriminator')
+        $this->userDiscriminator = $this->getMockBuilder('Rvntone\MultiUserBundle\Model\UserDiscriminator')
                 ->disableOriginalConstructor()->getMock();
         $this->interactiveLoginEvent = $this->getMockBuilder('Symfony\Component\Security\Http\Event\InteractiveLoginEvent')
                 ->disableOriginalConstructor()->getMock();
@@ -29,7 +29,7 @@ class AuthenticationListenerTest extends \PHPUnit_Framework_TestCase
     {
         $this->interactiveLoginEvent->expects($this->once())->method('getAuthenticationToken')->will($this->returnValue($this->token));
         $this->token->expects($this->once())->method('getUser')->will($this->returnValue($this->user));
-        $this->userDiscriminator->expects($this->exactly(1))->method('setClass')->with('PUGX\MultiUserBundle\Tests\Stub\User', true);
+        $this->userDiscriminator->expects($this->exactly(1))->method('setClass')->with('Rvntone\MultiUserBundle\Tests\Stub\User', true);
 
         $this->listener->onSecurityInteractiveLogin($this->interactiveLoginEvent);
     }
@@ -37,7 +37,7 @@ class AuthenticationListenerTest extends \PHPUnit_Framework_TestCase
     public function testOnSecurityImplicitLogin()
     {
         $this->implicitLoginEvent->expects($this->once())->method('getUser')->will($this->returnValue($this->user));
-        $this->userDiscriminator->expects($this->exactly(1))->method('setClass')->with('PUGX\MultiUserBundle\Tests\Stub\User', true);
+        $this->userDiscriminator->expects($this->exactly(1))->method('setClass')->with('Rvntone\MultiUserBundle\Tests\Stub\User', true);
 
         $this->listener->onSecurityImplicitLogin($this->implicitLoginEvent);
     }
@@ -45,7 +45,7 @@ class AuthenticationListenerTest extends \PHPUnit_Framework_TestCase
 	public function testOnSecuritySwitchUser()
 	{
 		$this->switchUserEvent->expects($this->once())->method('getTargetUser')->will($this->returnValue($this->user));
-		$this->userDiscriminator->expects($this->exactly(1))->method('setClass')->with('PUGX\MultiUserBundle\Tests\Stub\User', true);
+		$this->userDiscriminator->expects($this->exactly(1))->method('setClass')->with('Rvntone\MultiUserBundle\Tests\Stub\User', true);
 
 		$this->listener->onSecuritySwitchUser($this->switchUserEvent);
 	}
@@ -58,7 +58,7 @@ class AuthenticationListenerTest extends \PHPUnit_Framework_TestCase
 
         $this->userDiscriminator->expects($this->once())
             ->method('setClass')
-            ->with('PUGX\MultiUserBundle\Tests\Stub\User', true);
+            ->with('Rvntone\MultiUserBundle\Tests\Stub\User', true);
 
         $this->listener->onSecuritySwitchUser($this->switchUserEvent);
     }

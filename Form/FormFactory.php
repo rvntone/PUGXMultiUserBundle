@@ -1,8 +1,8 @@
 <?php
 
-namespace PUGX\MultiUserBundle\Form;
+namespace Rvntone\MultiUserBundle\Form;
 
-use PUGX\MultiUserBundle\Model\UserDiscriminator;
+use Rvntone\MultiUserBundle\Model\UserDiscriminator;
 use Symfony\Component\Form\FormFactoryInterface;
 use FOS\UserBundle\Form\Factory\FactoryInterface;
 
@@ -10,7 +10,7 @@ class FormFactory implements FactoryInterface
 {
     /**
      *
-     * @var \PUGX\MultiUserBundle\Model\UserDiscriminator 
+     * @var \Rvntone\MultiUserBundle\Model\UserDiscriminator
      */
     private $userDiscriminator;
     
@@ -34,7 +34,7 @@ class FormFactory implements FactoryInterface
     
     /**
      * 
-     * @param \PUGX\MultiUserBundle\Model\UserDiscriminator $userDiscriminator
+     * @param \Rvntone\MultiUserBundle\Model\UserDiscriminator $userDiscriminator
      * @param string $type registration|profile
      */
     public function __construct(UserDiscriminator $userDiscriminator, FormFactoryInterface $formFactory, $type) 

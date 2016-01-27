@@ -1,6 +1,6 @@
 <?php
 
-namespace PUGX\MultiUserBundle\Tests\Stub;
+namespace Rvntone\MultiUserBundle\Tests\Stub;
 
 use FOS\UserBundle\Controller\RegistrationController as BaseController;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace PUGX\MultiUserBundle\Validator\Constraints;
+namespace Rvntone\MultiUserBundle\Validator\Constraints;
 
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity as BaseConstraint;
 

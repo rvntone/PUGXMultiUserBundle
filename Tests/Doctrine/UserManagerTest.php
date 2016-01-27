@@ -1,8 +1,8 @@
 <?php
 
-namespace PUGX\MultiUserBundle\Tests\Doctrine;
+namespace Rvntone\MultiUserBundle\Tests\Doctrine;
 
-use PUGX\MultiUserBundle\Doctrine\UserManager;
+use Rvntone\MultiUserBundle\Doctrine\UserManager;
 
 class UserManagerTest extends \PHPUnit_Framework_TestCase
 {
@@ -16,9 +16,9 @@ class UserManagerTest extends \PHPUnit_Framework_TestCase
                 ->disableOriginalConstructor()->getMock();
         $this->om = $this->getMockBuilder('Doctrine\Common\Persistence\ObjectManager')
                 ->disableOriginalConstructor()->getMock();
-        $this->userDiscriminator = $this->getMockBuilder('PUGX\MultiUserBundle\Model\UserDiscriminator')
+        $this->userDiscriminator = $this->getMockBuilder('Rvntone\MultiUserBundle\Model\UserDiscriminator')
                 ->disableOriginalConstructor()->getMock();
-        $this->class = 'PUGX\MultiUserBundle\Tests\Stub\User';
+        $this->class = 'Rvntone\MultiUserBundle\Tests\Stub\User';
         
         $this->repo = $this->getMockBuilder('Doctrine\Common\Persistence\ObjectRepository')
                 ->disableOriginalConstructor()->getMock();
@@ -56,7 +56,7 @@ class UserManagerTest extends \PHPUnit_Framework_TestCase
         $this->userDiscriminator
             ->expects($this->exactly(1))
             ->method('getClasses')
-            ->will($this->onConsecutiveCalls(array('PUGX\MultiUserBundle\Tests\Stub\User')));
+            ->will($this->onConsecutiveCalls(array('Rvntone\MultiUserBundle\Tests\Stub\User')));
 
         $this->om->expects($this->exactly(1))
             ->method('getRepository')
@@ -69,22 +69,22 @@ class UserManagerTest extends \PHPUnit_Framework_TestCase
         $this->userDiscriminator
             ->expects($this->exactly(1))
             ->method('setClass')
-            ->will($this->onConsecutiveCalls(array('PUGX\MultiUserBundle\Tests\Stub\User')));
+            ->will($this->onConsecutiveCalls(array('Rvntone\MultiUserBundle\Tests\Stub\User')));
 
         $this->userManager->findUserBy(array('criteria' => 'dummy'));
     }
     
     public function testFindUsers()
     {                
-        $this->userDiscriminator->expects($this->exactly(1))->method('getClasses')->will($this->onConsecutiveCalls(array('PUGX\MultiUserBundle\Tests\Stub\User')));
-        $this->om->expects($this->exactly(1))->method('getRepository')->with('PUGX\MultiUserBundle\Tests\Stub\User')->will($this->returnValue($this->repo));
+        $this->userDiscriminator->expects($this->exactly(1))->method('getClasses')->will($this->onConsecutiveCalls(array('Rvntone\MultiUserBundle\Tests\Stub\User')));
+        $this->om->expects($this->exactly(1))->method('getRepository')->with('Rvntone\MultiUserBundle\Tests\Stub\User')->will($this->returnValue($this->repo));
         $this->repo->expects($this->exactly(1))->method('findAll')->will($this->onConsecutiveCalls(array()));
         $this->userManager->findUsers();
     }
     
     public function testFindUserByUserNotFound()
     {                
-        $this->userDiscriminator->expects($this->exactly(1))->method('getClasses')->will($this->onConsecutiveCalls(array('PUGX\MultiUserBundle\Tests\Stub\User')));
+        $this->userDiscriminator->expects($this->exactly(1))->method('getClasses')->will($this->onConsecutiveCalls(array('Rvntone\MultiUserBundle\Tests\Stub\User')));
         $this->om->expects($this->exactly(1))->method('getRepository')->will($this->returnValue($this->repo));
         $this->repo->expects($this->exactly(1))->method('findOneBy')->with(array('criteria' => 'dummy'))->will($this->onConsecutiveCalls(null));        
         $this->userDiscriminator->expects($this->exactly(0))->method('setClass');                

@@ -1,14 +1,14 @@
 <?php
 
-namespace PUGX\MultiUserBundle\Tests\Model;
+namespace Rvntone\MultiUserBundle\Tests\Model;
 
-use PUGX\MultiUserBundle\Model\UserDiscriminator;
-use PUGX\MultiUserBundle\Tests\Stub\UserRegistrationForm;
-use PUGX\MultiUserBundle\Tests\Stub\UserProfileForm;
-use PUGX\MultiUserBundle\Tests\Stub\AnotherUserRegistrationForm;
-use PUGX\MultiUserBundle\Tests\Stub\AnotherUserProfileForm;
-use PUGX\MultiUserBundle\Tests\Stub\User;
-use PUGX\MultiUserBundle\Tests\Stub\AnotherUser;
+use Rvntone\MultiUserBundle\Model\UserDiscriminator;
+use Rvntone\MultiUserBundle\Tests\Stub\UserRegistrationForm;
+use Rvntone\MultiUserBundle\Tests\Stub\UserProfileForm;
+use Rvntone\MultiUserBundle\Tests\Stub\AnotherUserRegistrationForm;
+use Rvntone\MultiUserBundle\Tests\Stub\AnotherUserProfileForm;
+use Rvntone\MultiUserBundle\Tests\Stub\User;
+use Rvntone\MultiUserBundle\Tests\Stub\AnotherUser;
 use Symfony\Component\Form\FormFactoryInterface;
 
 class UserDiscriminatorTest extends \PHPUnit_Framework_TestCase
@@ -21,16 +21,16 @@ class UserDiscriminatorTest extends \PHPUnit_Framework_TestCase
         $this->token = $this->getMockBuilder('Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken')->disableOriginalConstructor()->getMock();      
         $this->user = new User();  
         $this->userInvalid = $this->getMockBuilder('InvalidUser')->disableOriginalConstructor()->getMock();  
-        $this->userFactory = $this->getMockBuilder('PUGX\MultiUserBundle\Model\UserFactoryInterface')->disableOriginalConstructor()->getMock();
+        $this->userFactory = $this->getMockBuilder('Rvntone\MultiUserBundle\Model\UserFactoryInterface')->disableOriginalConstructor()->getMock();
                 
         $userParameters = array(
             'entity' => array(
-                'class' => 'PUGX\MultiUserBundle\Tests\Stub\User',
-                'factory' => 'PUGX\MultiUserBundle\Model\UserFactory'
+                'class' => 'Rvntone\MultiUserBundle\Tests\Stub\User',
+                'factory' => 'Rvntone\MultiUserBundle\Model\UserFactory'
             ),
             'registration' => array(
                 'form' => array(
-                    'type' => 'PUGX\MultiUserBundle\Tests\Stub\UserRegistrationForm',
+                    'type' => 'Rvntone\MultiUserBundle\Tests\Stub\UserRegistrationForm',
                     'name' => 'fos_user_registration_form',
                     'validation_groups' => array('Registration', 'Default')
                 ),
@@ -38,7 +38,7 @@ class UserDiscriminatorTest extends \PHPUnit_Framework_TestCase
             ),
             'profile' => array(
                 'form' => array(
-                    'type' => 'PUGX\MultiUserBundle\Tests\Stub\UserProfileForm',
+                    'type' => 'Rvntone\MultiUserBundle\Tests\Stub\UserProfileForm',
                     'name' => 'fos_user_profile_form',
                     'validation_groups' => array('Profile', 'Default')
                 ),
@@ -48,12 +48,12 @@ class UserDiscriminatorTest extends \PHPUnit_Framework_TestCase
 
         $anotherUserParameters = array(
             'entity' => array(
-                'class' => 'PUGX\MultiUserBundle\Tests\Stub\AnotherUser',
-                'factory' => 'PUGX\MultiUserBundle\Tests\Stub\CustomUserFactory'
+                'class' => 'Rvntone\MultiUserBundle\Tests\Stub\AnotherUser',
+                'factory' => 'Rvntone\MultiUserBundle\Tests\Stub\CustomUserFactory'
             ),
             'registration' => array(
                 'form' => array(
-                    'type' => 'PUGX\MultiUserBundle\Tests\Stub\AnotherUserRegistrationForm',
+                    'type' => 'Rvntone\MultiUserBundle\Tests\Stub\AnotherUserRegistrationForm',
                     'name' => 'fos_user_my_registration_form',
                     'validation_groups' => array('MyRegistration', 'Default')
                 ),
@@ -61,7 +61,7 @@ class UserDiscriminatorTest extends \PHPUnit_Framework_TestCase
             ),
             'profile' => array(
                 'form' => array(
-                    'type' => 'PUGX\MultiUserBundle\Tests\Stub\AnotherUserProfileForm',
+                    'type' => 'Rvntone\MultiUserBundle\Tests\Stub\AnotherUserProfileForm',
                     'name' => 'fos_user_profile_form',
                     'validation_groups' => array('Profile', 'Default')
                 ),
@@ -82,16 +82,16 @@ class UserDiscriminatorTest extends \PHPUnit_Framework_TestCase
         $userParameters = array(
             'entity' => array(
                 'class' => 'FakeUser',
-                'factory' => 'PUGX\MultiUserBundle\Model\UserFactory'
+                'factory' => 'Rvntone\MultiUserBundle\Model\UserFactory'
             ),
             'registration' => array(
-                'form' => 'PUGX\MultiUserBundle\Tests\Stub\UserRegistrationForm',
+                'form' => 'Rvntone\MultiUserBundle\Tests\Stub\UserRegistrationForm',
                 'options' => array(
                     'validation_groups' => array('Registration', 'Default')
                 )
             ),
             'profile' => array(
-                'form' => 'PUGX\MultiUserBundle\Tests\Stub\UserProfileForm',
+                'form' => 'Rvntone\MultiUserBundle\Tests\Stub\UserProfileForm',
                 'options' => array(
                     'validation_groups' => array('Profile', 'Default')
                 )
@@ -107,7 +107,7 @@ class UserDiscriminatorTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetClasses() 
     {
-        $this->assertEquals(array('PUGX\MultiUserBundle\Tests\Stub\User', 'PUGX\MultiUserBundle\Tests\Stub\AnotherUser'), $this->discriminator->getClasses());
+        $this->assertEquals(array('Rvntone\MultiUserBundle\Tests\Stub\User', 'Rvntone\MultiUserBundle\Tests\Stub\AnotherUser'), $this->discriminator->getClasses());
     }
     
     /**
@@ -120,26 +120,26 @@ class UserDiscriminatorTest extends \PHPUnit_Framework_TestCase
     
     public function testGetClass() 
     {  
-        $this->discriminator->setClass('PUGX\MultiUserBundle\Tests\Stub\AnotherUser');        
-        $this->assertEquals('PUGX\MultiUserBundle\Tests\Stub\AnotherUser', $this->discriminator->getClass());
+        $this->discriminator->setClass('Rvntone\MultiUserBundle\Tests\Stub\AnotherUser');
+        $this->assertEquals('Rvntone\MultiUserBundle\Tests\Stub\AnotherUser', $this->discriminator->getClass());
     }
     
     public function testSetClassPersist() 
     {        
-        $this->session->expects($this->exactly(1))->method('set')->with(UserDiscriminator::SESSION_NAME, 'PUGX\MultiUserBundle\Tests\Stub\User');        
-        $this->discriminator->setClass('PUGX\MultiUserBundle\Tests\Stub\User', true);
+        $this->session->expects($this->exactly(1))->method('set')->with(UserDiscriminator::SESSION_NAME, 'Rvntone\MultiUserBundle\Tests\Stub\User');
+        $this->discriminator->setClass('Rvntone\MultiUserBundle\Tests\Stub\User', true);
     }
     
     public function testGetClassDefault() 
     {
         $this->session->expects($this->exactly(1))->method('get')->with(UserDiscriminator::SESSION_NAME, null)->will($this->onConsecutiveCalls(null));        
-        $this->assertEquals('PUGX\MultiUserBundle\Tests\Stub\User', $this->discriminator->getClass());
+        $this->assertEquals('Rvntone\MultiUserBundle\Tests\Stub\User', $this->discriminator->getClass());
     }
     
     public function testGetClassStored() 
     {
-        $this->session->expects($this->exactly(1))->method('get')->with(UserDiscriminator::SESSION_NAME, null)->will($this->onConsecutiveCalls('PUGX\MultiUserBundle\Tests\Stub\AnotherUser'));
-        $this->assertEquals('PUGX\MultiUserBundle\Tests\Stub\AnotherUser', $this->discriminator->getClass());
+        $this->session->expects($this->exactly(1))->method('get')->with(UserDiscriminator::SESSION_NAME, null)->will($this->onConsecutiveCalls('Rvntone\MultiUserBundle\Tests\Stub\AnotherUser'));
+        $this->assertEquals('Rvntone\MultiUserBundle\Tests\Stub\AnotherUser', $this->discriminator->getClass());
     }
     
     public function testCreateUser()
@@ -147,70 +147,70 @@ class UserDiscriminatorTest extends \PHPUnit_Framework_TestCase
         $expected = new AnotherUser();
         $this->session->expects($this->exactly(0))->method('get');   
         
-        $this->discriminator->setClass('PUGX\MultiUserBundle\Tests\Stub\AnotherUser');
+        $this->discriminator->setClass('Rvntone\MultiUserBundle\Tests\Stub\AnotherUser');
         $result = $this->discriminator->createUser();
         $this->assertEquals($expected, $result);
     }
     
     public function testGetUserFactory()
     {
-        $this->discriminator->setClass('PUGX\MultiUserBundle\Tests\Stub\AnotherUser');
+        $this->discriminator->setClass('Rvntone\MultiUserBundle\Tests\Stub\AnotherUser');
         $result = $this->discriminator->getUserFactory();
-        $this->assertEquals('PUGX\MultiUserBundle\Tests\Stub\CustomUserFactory', $result);
+        $this->assertEquals('Rvntone\MultiUserBundle\Tests\Stub\CustomUserFactory', $result);
     }
     
     public function testGetFormTypeRegistration()
     {
-        $this->discriminator->setClass('PUGX\MultiUserBundle\Tests\Stub\User');
+        $this->discriminator->setClass('Rvntone\MultiUserBundle\Tests\Stub\User');
         $result = $this->discriminator->getFormType('registration');
-        $this->assertEquals('PUGX\MultiUserBundle\Tests\Stub\UserRegistrationForm', get_class($result));
+        $this->assertEquals('Rvntone\MultiUserBundle\Tests\Stub\UserRegistrationForm', get_class($result));
     }
     
     public function testGetFormTypeProfile()
     {
-        $this->discriminator->setClass('PUGX\MultiUserBundle\Tests\Stub\User');
+        $this->discriminator->setClass('Rvntone\MultiUserBundle\Tests\Stub\User');
         $result = $this->discriminator->getFormType('profile');
-        $this->assertEquals('PUGX\MultiUserBundle\Tests\Stub\UserProfileForm', get_class($result));
+        $this->assertEquals('Rvntone\MultiUserBundle\Tests\Stub\UserProfileForm', get_class($result));
     }
     
     public function testGetFormNameRegistration()
     {
-        $this->discriminator->setClass('PUGX\MultiUserBundle\Tests\Stub\AnotherUser');
+        $this->discriminator->setClass('Rvntone\MultiUserBundle\Tests\Stub\AnotherUser');
         $result = $this->discriminator->getFormName('registration');
         $this->assertEquals('fos_user_my_registration_form', $result);
     }
     
     public function testGetFormNameProfile()
     {
-        $this->discriminator->setClass('PUGX\MultiUserBundle\Tests\Stub\User');
+        $this->discriminator->setClass('Rvntone\MultiUserBundle\Tests\Stub\User');
         $result = $this->discriminator->getFormName('profile');
         $this->assertEquals('fos_user_profile_form', $result);
     }
     
     public function testGetValidationGroupsRegistration()
     {
-        $this->discriminator->setClass('PUGX\MultiUserBundle\Tests\Stub\User');
+        $this->discriminator->setClass('Rvntone\MultiUserBundle\Tests\Stub\User');
         $result = $this->discriminator->getFormValidationGroups('registration');
         $this->assertEquals(array('Registration', 'Default'), $result);
     }
     
     public function testGetValidationGroupsRegistrationCustom()
     {
-        $this->discriminator->setClass('PUGX\MultiUserBundle\Tests\Stub\AnotherUser');
+        $this->discriminator->setClass('Rvntone\MultiUserBundle\Tests\Stub\AnotherUser');
         $result = $this->discriminator->getFormValidationGroups('registration');
         $this->assertEquals(array('MyRegistration', 'Default'), $result);
     }
     
     public function testGetValidationGroupsProfile()
     {
-        $this->discriminator->setClass('PUGX\MultiUserBundle\Tests\Stub\User');
+        $this->discriminator->setClass('Rvntone\MultiUserBundle\Tests\Stub\User');
         $result = $this->discriminator->getFormValidationGroups('profile');
         $this->assertEquals(array('Profile', 'Default'), $result);
     }
     
     public function testGetRegistrationTemplate()
     {
-        $this->discriminator->setClass('PUGX\MultiUserBundle\Tests\Stub\User');
+        $this->discriminator->setClass('Rvntone\MultiUserBundle\Tests\Stub\User');
         $result = $this->discriminator->getTemplate('registration');
         $this->assertEquals('AcmeUserBundle:Registration:user_one.form.html.twig', $result);
     }

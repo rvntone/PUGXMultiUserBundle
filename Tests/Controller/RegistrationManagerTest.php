@@ -1,14 +1,14 @@
 <?php
 
-namespace PUGX\MultiUserBundle\Tests\Controller;
+namespace Rvntone\MultiUserBundle\Tests\Controller;
 
-use PUGX\MultiUserBundle\Controller\RegistrationManager;
+use Rvntone\MultiUserBundle\Controller\RegistrationManager;
 
 class RegistrationManagerTest extends \PHPUnit_Framework_TestCase
 {
     public function setUp()
     {
-        $this->discriminator = $this->getMockBuilder('PUGX\MultiUserBundle\Model\UserDiscriminator')
+        $this->discriminator = $this->getMockBuilder('Rvntone\MultiUserBundle\Model\UserDiscriminator')
                 ->disableOriginalConstructor()->getMock();
         
         $this->container = $this->getMockBuilder('Symfony\Component\DependencyInjection\ContainerInterface')
@@ -17,7 +17,7 @@ class RegistrationManagerTest extends \PHPUnit_Framework_TestCase
         $this->controller = $this->getMockBuilder('FOS\UserBundle\Controller\RegistrationController')
                 ->disableOriginalConstructor()->getMock();
         
-        $this->formFactory = $this->getMockBuilder('PUGX\MultiUserBundle\Form\FormFactory')
+        $this->formFactory = $this->getMockBuilder('Rvntone\MultiUserBundle\Form\FormFactory')
                 ->disableOriginalConstructor()->getMock();
         
         $this->request = $this->getMockBuilder('Symfony\Component\HttpFoundation\Request')
