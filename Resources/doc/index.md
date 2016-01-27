@@ -36,7 +36,7 @@ Add the following lines in your composer.json:
 {
     "require": {
         "friendsofsymfony/user-bundle": "2.0.*@dev",
-        "pugx/multi-user-bundle": "3.0.*@dev"
+        "rvntone/multi-user-bundle": "2.0.*@dev"
     }
 }
 
@@ -45,7 +45,7 @@ Add the following lines in your composer.json:
 Now, run the composer to download the bundle:
 
 ``` bash
-$ php composer.phar update pugx/multi-user-bundle
+$ php composer.phar update rvntone/multi-user-bundle
 ```
 
 
