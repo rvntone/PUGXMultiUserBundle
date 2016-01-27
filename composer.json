@@ -1,14 +1,14 @@
 {
-    "name": "pugx/multi-user-bundle",
+    "name": "rvntone/multi-user-bundle",
     "type": "symfony-bundle",
-    "description": "Symfony PUGXMultiUserBundle",
+    "description": "Symfony PUGXMultiUserBundle, Fork of PUGX/PUGXMultiUserBundle",
     "keywords": ["user management multi user management"],
-    "homepage": "https://github.com/PUGX",
+    "homepage": "https://github.com/rvntone/PUGXMultiUserBundle",
     "license": "MIT",
     "authors": [
         {
-            "name": "Leonardo Proietti",
-            "email": "leonardo.proietti@gmail.com"
+            "name": "Yonel Meza Avila",
+            "email": "yonelmeza@gmail.com"
         },
         {
             "name": "Community",
@@ -23,9 +23,9 @@
     "suggest": {
     },
     "autoload": {
-        "psr-0": { "PUGX\\MultiUserBundle": "" }
+        "psr-0": { "Rvntone\\MultiUserBundle": "" }
     },
-    "target-dir": "PUGX/MultiUserBundle",
+    "target-dir": "Rvntone/MultiUserBundle",
     "extra": {
         "branch-alias": {
             "dev-master": "3.0.x-dev"

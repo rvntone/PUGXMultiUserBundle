@@ -1,3 +1,7 @@
 report/
 vendor/
 composer.lock
+.idea/*
+npm-debug.log
+*~
+.DS_Store
