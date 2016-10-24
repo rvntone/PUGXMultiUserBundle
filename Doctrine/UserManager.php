@@ -5,9 +5,9 @@ namespace Rvntone\MultiUserBundle\Doctrine;
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\ORM\ORMException;
 use FOS\UserBundle\Doctrine\UserManager as BaseUserManager;
-use FOS\UserBundle\Util\CanonicalizerInterface;
-use Symfony\Component\Security\Core\Encoder\EncoderFactoryInterface;
 use Rvntone\MultiUserBundle\Model\UserDiscriminator;
+use FOS\UserBundle\Util\PasswordUpdaterInterface;
+use FOS\UserBundle\Util\CanonicalFieldsUpdater;
 
 /**
  * Custom user manager for FOSUserBundle
@@ -32,19 +32,18 @@ class UserManager extends BaseUserManager
     /**
      * Constructor.
      *
-     * @param EncoderFactoryInterface $encoderFactory
-     * @param CanonicalizerInterface  $usernameCanonicalizer
-     * @param CanonicalizerInterface  $emailCanonicalizer
+     * @param PasswordUpdaterInterface $passwordUpdater
+     * @param CanonicalFieldsUpdater  $canonicalFieldsUpdater
      * @param ObjectManager           $om
      * @param string                  $class
      * @param UserDiscriminator       $userDiscriminator
      */
-    public function __construct(EncoderFactoryInterface $encoderFactory, CanonicalizerInterface $usernameCanonicalizer, CanonicalizerInterface $emailCanonicalizer, ObjectManager $om, $class, UserDiscriminator $userDiscriminator)
+    public function __construct(PasswordUpdaterInterface $passwordUpdater, CanonicalFieldsUpdater $canonicalFieldsUpdater, ObjectManager $om, $class, UserDiscriminator $userDiscriminator)
     {
         $this->om = $om;
         $this->userDiscriminator = $userDiscriminator;
 
-        parent::__construct($encoderFactory, $usernameCanonicalizer, $emailCanonicalizer, $om, $class);
+        parent::__construct($passwordUpdater, $canonicalFieldsUpdater, $om, $class);
     }
 
     /**
