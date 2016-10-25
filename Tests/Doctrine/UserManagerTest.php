@@ -6,14 +6,21 @@ use Rvntone\MultiUserBundle\Doctrine\UserManager;
 
 class UserManagerTest extends \PHPUnit_Framework_TestCase
 {
-    public function setUp()
+  private $passwordUpdater;
+  private $canonicalFieldsUpdater;
+  private $om;
+  private $userDiscriminator;
+  private $class;
+  private $repo;
+  private $metaData;
+  private $userManager;
+
+  public function setUp()
     {
-        $this->encoderFactory = $this->getMockBuilder('Symfony\Component\Security\Core\Encoder\EncoderFactory')
-                ->disableOriginalConstructor()->getMock();
-        $this->usernameCanonicalizer = $this->getMockBuilder('FOS\UserBundle\Util\Canonicalizer')
-                ->disableOriginalConstructor()->getMock();
-        $this->emailCanonicalizer = $this->getMockBuilder('FOS\UserBundle\Util\Canonicalizer')
-                ->disableOriginalConstructor()->getMock();
+        $this->passwordUpdater = $this->getMockBuilder('FOS\UserBundle\Util\PasswordUpdaterInterface')
+                                      ->disableOriginalConstructor()->getMock();
+        $this->canonicalFieldsUpdater = $this->getMockBuilder('FOS\UserBundle\Util\CanonicalFieldsUpdater')
+                                             ->disableOriginalConstructor()->getMock();
         $this->om = $this->getMockBuilder('Doctrine\Common\Persistence\ObjectManager')
                 ->disableOriginalConstructor()->getMock();
         $this->userDiscriminator = $this->getMockBuilder('Rvntone\MultiUserBundle\Model\UserDiscriminator')
@@ -34,8 +41,8 @@ class UserManagerTest extends \PHPUnit_Framework_TestCase
         $this->metaData->expects($this->exactly(1))->method('getName')
                 ->will($this->returnValue($this->class));
         //end parent
-        
-        $this->userManager = new UserManager($this->encoderFactory, $this->usernameCanonicalizer, $this->emailCanonicalizer, $this->om, $this->class, $this->userDiscriminator);
+
+        $this->userManager = new UserManager($this->passwordUpdater, $this->canonicalFieldsUpdater, $this->om, $this->class, $this->userDiscriminator);
     }
         
     public function testGetClass()
